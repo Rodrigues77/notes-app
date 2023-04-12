@@ -1,0 +1,15 @@
+# Ignore node_modules directory
+node_modules/
+
+# Ignore npm's cache directory
+.npm/
+
+# Ignore log files and other generated files
+logs/
+*.log
+npm-debug.log*
+
+# Ignore .env file
+# Para um ambiente produtivo o .env precisa ser privado. 
+# Como estamos rodando apenas localmente, ele pode ficar comentado. 
+# .env
