@@ -1,6 +1,6 @@
 # Notes App
 
-Este é o aplicativo notes-app, um aplicativo de gestão de notas.
+Este é o aplicativo notes-app, um aplicativo de notas.
 
 ## Pré-requisitos
 

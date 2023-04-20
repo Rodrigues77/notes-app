@@ -25,7 +25,7 @@ Para fazer isso:
 
 1. Abra um terminal, seja Linux, CMD, PowerShell;
 2. Vá até a pasta "notes-app/api" (Exemplo: "C:\users\Andrey\notes-app\api")
-3. Digite o comando: npm start
+3. Digite o comando: npm run start
 
 ![npm-run-start](./src/assets/npm-run-start.png)
 
@@ -34,3 +34,5 @@ Aguarde até verificar a seguinte mensagem:
 ![npm-run-start-2](./src/assets/npm-run-start-2.png)
 
 **Pronto! A API está rodando localmente.**
+
+## OBS: PARA O FUNCIONAMENTO PLENO DO FRONTEND, A API DEVE ESTAR RODANDO SIMULTANEAMENTE
