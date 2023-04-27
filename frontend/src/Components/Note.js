@@ -7,12 +7,44 @@ import Typography from '@mui/material/Typography';
 import * as React from 'react';
 import api from '../services/Api';
 
-export default function NoteForm() {
-  const [title, setTitle] = React.useState('');
-  const [content, setContent] = React.useState('');
+export default function Note({ data }) {
+  const [title, setTitle] = React.useState(data?.title);
+  const [content, setContent] = React.useState(data?.content);
 
   const titleRef = React.useRef(null);
   const contentRef = React.useRef(null);
+
+  async function updateNote(param) {
+    const { title, content, id } = param;
+    try {
+      let data = {
+        id: id,
+      };
+
+      if (title) {
+        data = { ...data, title: title };
+      }
+
+      if (content) {
+        data = { ...data, content: content };
+      }
+
+      console.log("🚀 updateNote ~ data:", data)
+      
+      let response = null;
+      // response = await api.post('/notes', data);
+
+      if (response.status !== 200) {
+        console.log('Falha ao atualizar nota...');
+      } else {
+        console.log('Nota atualizada com sucesso!');
+        setTitle('');
+        setContent('');
+      }
+    } catch (err) {
+      console.log('Erro durante a chamada da API');
+    }
+  }
 
   const handleTitleChange = (event) => {
     setTitle(event.target.value);
@@ -22,29 +54,13 @@ export default function NoteForm() {
     setContent(event.target.value);
   };
 
-  async function handleSubmit() {
-    try {
-      const data = {
-        title,
-        content
-      };
-
-      const response = await api.post('/notes', data);
-
-      if (response.status !== 200) {
-        window.alert('Falha ao enviar nota...');
-        console.log('Falha ao enviar nota...');
-      } else {
-        window.alert('Nota enviada com sucesso!');
-        console.log('Nota enviada com sucesso!');
-        setTitle('');
-        setContent('');
-        window.location.reload()
-      }
-    } catch (err) {
-      window.alert('Erro durante a chamada da API');
-      console.log('Erro durante a chamada da API');
+  const handleOnBlur = () => {
+    const noteData = {
+      title: title,
+      content: content,
+      id: data?._id
     }
+    // updateNote(noteData);
   }
 
   React.useEffect(() => {
@@ -60,41 +76,33 @@ export default function NoteForm() {
   }, []);
 
   return (
-    <Paper variant="outlined" sx={{ my: { xs: 3, md: 6 }, p: { xs: 2, md: 3 } }}>
-      <Typography variant="h6" gutterBottom>
-        Adicionar Nota
-      </Typography>
-      <Grid container spacing={3}>
+    <Paper variant="outlined" sx={{ my: { xs: 3, md: 6 }, p: { xs: 2, md: 3 } }} >
+      <Grid container spacing={3} >
         <Grid item xs={12} md={12}>
           <TextField
-            required
             id="title"
-            label="Título"
             fullWidth
             variant="standard"
+            disabled={true}
             value={title}
             inputRef={titleRef}
             onChange={handleTitleChange}
+            onBlur={handleOnBlur}
           />
         </Grid>
-        <Grid item xs={12} md={12} height={'15em'}>
+        <Grid item xs={12} md={12} height={"15em"}>
           <TextField
-            required
             id="content"
-            label="Conteúdo"
             fullWidth
             variant="standard"
+            disabled={true}
             value={content}
             inputRef={contentRef}
             onChange={handleContentChange}
+            onBlur={handleOnBlur}
           />
         </Grid>
       </Grid>
-      <Box sx={{ display: 'flex', justifyContent: 'flex-start' }}>
-        <Button onClick={() => handleSubmit()} sx={{ mt: 3, ml: 1 }} disabled={!title || !content}>
-          Enviar
-        </Button>
-      </Box>
     </Paper>
   );
 }

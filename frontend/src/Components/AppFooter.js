@@ -10,7 +10,7 @@ function Copyright() {
     <Typography variant="body2" color="text.secondary">
       {'Copyright © '}
       <Link color="inherit" href="">
-        Nosso Site
+        App de Notas
       </Link>{' '}
       {new Date().getFullYear()}
       {'.'}
@@ -41,9 +41,6 @@ export default function AppFooter() {
         }}
       >
         <Container maxWidth="sm">
-          <Typography variant="body1">
-          Todos os direitos reservados
-          </Typography>
           <Copyright />
         </Container>
       </Box>

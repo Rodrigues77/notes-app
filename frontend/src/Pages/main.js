@@ -4,7 +4,8 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 import * as React from 'react';
 import AppMenu from '../Components/AppBar';
 import NoteForm from '../Components/NoteForm';
-// import AppFooter from './../Components/AppFooter';
+import Notes from '../Components/Notes';
+import AppFooter from './../Components/AppFooter';
 
 const theme = createTheme();
 
@@ -15,8 +16,9 @@ export default function Main() {
       <AppMenu/>
       <Container component="main" maxWidth="sm" sx={{ mb: 4, minHeight: '75vh'}}>
         <NoteForm />
+        <Notes />
       </Container>
-      {/* <AppFooter/> */}
+      <AppFooter/>
     </ThemeProvider>
   );
 }
