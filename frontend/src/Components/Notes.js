@@ -1,7 +1,6 @@
 import * as React from 'react';
-import Note from './Note';
 import api from '../services/Api';
-import { Grid, Paper, TextField } from '@mui/material';
+import Note from './Note';
 
 export default function Notes() {
   const [notesData, setNotesData] = React.useState([]);
@@ -14,8 +13,7 @@ export default function Notes() {
         window.alert('Falha ao buscar dados das notas...');
         console.log('Falha ao buscar dados das notas..');
       } else {
-        console.log('Notas recebidas com sucesso');
-        console.log('response.data', response.data);
+        console.log('Notas recebidas com sucesso => ', response.data);
         setNotesData(response.data);
       }
     } catch (err) {
@@ -25,20 +23,21 @@ export default function Notes() {
   }
 
   React.useEffect(() => {
+    console.log('useEffect => Notes.js');
     getNotesData();
   }, []);
 
   return (
-    <div>
+    <>
       {notesData.length > 0 ? (
-        <div>
-          {notesData.map((noteData) => (
-            <Note data={noteData} />
+        <>
+          {notesData.map((noteData, index) => (
+            <Note data={noteData} key={index} />
           ))}
-        </div>
+        </>
       ) : (
         <></>
       )}
-    </div>
+    </>
   );
 }

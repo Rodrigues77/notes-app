@@ -7,18 +7,29 @@ import NoteForm from '../Components/NoteForm';
 import Notes from '../Components/Notes';
 import AppFooter from './../Components/AppFooter';
 
-const theme = createTheme();
+export const theme = createTheme({
+  palette: {
+    mode: 'light',
+    text: {
+      white: "#E4E4E4",
+      black: "#181818",
+    },
+    primary: {
+      main: '#1976d2'
+    }
+  },
+});
 
 export default function Main() {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
-      <AppMenu/>
-      <Container component="main" maxWidth="sm" sx={{ mb: 4, minHeight: '75vh'}}>
+      <AppMenu />
+      <Container component="main" maxWidth="sm" sx={{ mb: 4, minHeight: '80vh' }}>
         <NoteForm />
         <Notes />
       </Container>
-      <AppFooter/>
+      <AppFooter />
     </ThemeProvider>
   );
 }

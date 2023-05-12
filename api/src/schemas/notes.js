@@ -4,7 +4,8 @@ const notesSchema = new mongoose.Schema(
   {
     title: String,
     content: String,
-    order: Number
+    createdAt: Number,
+    modifiedAt: Number,
   },
   {
     versionKey: false

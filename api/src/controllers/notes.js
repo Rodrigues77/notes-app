@@ -1,6 +1,6 @@
 const Notes = require('../schemas/notes');
 const crypto = require('crypto');
-const OBJECTID_REGEX = /^[a-fA-F0-9]{24}$/
+const OBJECTID_REGEX = /^[a-fA-F0-9]{24}$/;
 
 module.exports = {
   // CREATE
@@ -18,7 +18,9 @@ module.exports = {
     try {
       noteData = await Notes.create({
         title: title,
-        content: content
+        content: content,
+        createdAt: new Date().getTime(),
+        modifiedAt: new Date().getTime()
       });
     } catch (error) {
       const handledError = {
@@ -74,9 +76,8 @@ module.exports = {
 
     let notesData = [];
     try {
-      // TODO: Check if there will be a feature to order the notes
-      // notesData = await Notes.find().sort({ order: 1 });
       notesData = await Notes.find();
+      // notesData = await Notes.find().sort({ modifiedAt: -1 });
     } catch (error) {
       const handledError = {
         message: 'An error ocurred trying to find Notes',
@@ -114,7 +115,7 @@ module.exports = {
       return response.status(400).json(message);
     }
 
-    let update = {};
+    let update = { modifiedAt: new Date().getTime() };
 
     if (title) {
       update = { ...update, title: title };

@@ -39,7 +39,7 @@ export default function NoteForm() {
         console.log('Nota enviada com sucesso!');
         setTitle('');
         setContent('');
-        window.location.reload()
+        window.location.reload();
       }
     } catch (err) {
       window.alert('Erro durante a chamada da API');
@@ -61,11 +61,11 @@ export default function NoteForm() {
 
   return (
     <Paper variant="outlined" sx={{ my: { xs: 3, md: 6 }, p: { xs: 2, md: 3 } }}>
-      <Typography variant="h6" gutterBottom>
+      <Typography variant="h6" color="text.black" gutterBottom>
         Adicionar Nota
       </Typography>
       <Grid container spacing={3}>
-        <Grid item xs={12} md={12}>
+        <Grid item xs={12}>
           <TextField
             required
             id="title"
@@ -77,12 +77,14 @@ export default function NoteForm() {
             onChange={handleTitleChange}
           />
         </Grid>
-        <Grid item xs={12} md={12} height={'15em'}>
+        <Grid item xs={12}>
           <TextField
             required
             id="content"
             label="Conteúdo"
             fullWidth
+            multiline
+            rows={10}
             variant="standard"
             value={content}
             inputRef={contentRef}
