@@ -7,7 +7,7 @@ function Copyright() {
   return (
     <Typography variant="body2" color="text.black">
       {'Copyright © '}
-      <Link color="text.white" href="">
+      <Link color="primary" href="">
         App de Notas
       </Link>{' '}
       {new Date().getFullYear()}

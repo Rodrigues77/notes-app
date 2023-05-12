@@ -18,8 +18,7 @@ export default function AppMenu() {
       }}
     >
       <Toolbar>
-        <Typography variant="h6" color="default" noWrap>
-          {/* <Typography variant="h6" color="text.black" noWrap> */}
+        <Typography variant="h6" color="text.black" noWrap>
           App de Notas
         </Typography>
       </Toolbar>
