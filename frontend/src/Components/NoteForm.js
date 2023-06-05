@@ -1,3 +1,4 @@
+import AddIcon from '@mui/icons-material/Add';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Grid from '@mui/material/Grid';
@@ -32,11 +33,11 @@ export default function NoteForm() {
       const response = await api.post('/notes', data);
 
       if (response.status !== 200) {
-        window.alert('Falha ao enviar nota...');
-        console.log('Falha ao enviar nota...');
+        window.alert('Falha ao adicionar nota...');
+        console.log('Falha ao adicionar nota...');
       } else {
-        window.alert('Nota enviada com sucesso!');
-        console.log('Nota enviada com sucesso!');
+        // window.alert('Nota adicionada com sucesso!');
+        console.log('Nota adicionada com sucesso!');
         setTitle('');
         setContent('');
         window.location.reload();
@@ -61,9 +62,10 @@ export default function NoteForm() {
 
   return (
     <Paper variant="outlined" sx={{ my: { xs: 3, md: 6 }, p: { xs: 2, md: 3 } }}>
-      <Typography variant="h6" color="text.black" gutterBottom>
+      <Typography variant="h6" color="primary" gutterBottom>
         Adicionar Nota
       </Typography>
+      <Box sx={{ mb: '1em' }}></Box>
       <Grid container spacing={3}>
         <Grid item xs={12}>
           <TextField
@@ -93,8 +95,15 @@ export default function NoteForm() {
         </Grid>
       </Grid>
       <Box sx={{ display: 'flex', justifyContent: 'flex-start' }}>
-        <Button onClick={() => handleSubmit()} sx={{ mt: 3, ml: 1 }} disabled={!title || !content}>
-          Enviar
+        <Button
+          variant="contained"
+          color="primary"
+          startIcon={<AddIcon />}
+          onClick={() => handleSubmit()}
+          sx={{ mt: 3, ml: 1 }}
+          disabled={!title || !content}
+        >
+          Adicionar
         </Button>
       </Box>
     </Paper>

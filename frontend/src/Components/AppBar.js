@@ -7,10 +7,7 @@ export default function AppMenu() {
   return (
     <AppBar
       position="absolute"
-      // TODO: Mudar para primary depois!
-      color="default"
-      // color="primary"
-      // ----------
+      color="primary"
       elevation={2}
       sx={{
         position: 'relative',
@@ -18,7 +15,7 @@ export default function AppMenu() {
       }}
     >
       <Toolbar>
-        <Typography variant="h6" color="text.black" noWrap>
+        <Typography variant="h6" color="text.white" noWrap>
           App de Notas
         </Typography>
       </Toolbar>

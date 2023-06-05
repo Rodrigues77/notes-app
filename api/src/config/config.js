@@ -11,7 +11,6 @@ module.exports = {
   database: {
     uri: `mongodb+srv://${DB_USER}:${DB_PASSWORD}@cluster0.vcjeynh.mongodb.net/${DB_DATABASE}?retryWrites=true&w=majority`,
     collections: {
-      users: 'users',
       notes: 'notes'
     }
   }

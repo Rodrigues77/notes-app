@@ -8,8 +8,12 @@ const dbConnection = mongoose.connect(database.uri, {
   useNewUrlParser: true,
   // flag to avoid warnings
   useUnifiedTopology: true
-});
-
-console.log('CONFIG => dbConfig => Database connection configured');
+}).then(() => {
+  console.log('CONFIG => dbConfig => Database connection configured')
+}).catch((error) => {
+  console.error('ERROR => CONFIG => dbConfig => Database connection failed, error:', error)
+  process.exit(1);
+}
+);
 
 module.exports = dbConnection;

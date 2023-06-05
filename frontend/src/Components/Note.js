@@ -1,3 +1,5 @@
+import DeleteIcon from '@mui/icons-material/Delete';
+import SaveIcon from '@mui/icons-material/Save';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Grid from '@mui/material/Grid';
@@ -34,7 +36,27 @@ export default function Note({ data }) {
         console.log('Nota atualizada com sucesso!');
         setINITIAL_TITLE(title);
         setINITIAL_CONTENT(content);
-        window.location.reload()
+        window.location.reload();
+      }
+    } catch (err) {
+      window.alert('Erro durante a chamada da API');
+      console.log('Erro durante a chamada da API');
+    }
+  }
+
+  async function handleDelete() {
+    try {
+      const note_id = data._id;
+
+      const response = await api.delete(`/notes/${note_id}`);
+
+      if (response.status !== 200) {
+        window.alert('Falha ao deletar nota...');
+        console.log('Falha ao deletar nota...');
+      } else {
+        // window.alert('Nota deletada com sucesso!');
+        console.log('Nota deletada com sucesso!');
+        window.location.reload();
       }
     } catch (err) {
       window.alert('Erro durante a chamada da API');
@@ -76,15 +98,27 @@ export default function Note({ data }) {
           />
         </Grid>
       </Grid>
-      <Box sx={{ display: 'flex', justifyContent: 'flex-start' }}>
+      <Box sx={{ display: 'flex', justifyContent: 'space-between' }}>
         <Button
+          variant="contained"
+          color="primary"
+          startIcon={<SaveIcon />}
           onClick={() => handleSubmit()}
-          sx={{ mt: 3, ml: 1 }}
+          sx={{ mt: 3, ml: 1, justifyContent: 'flex-start' }}
           disabled={
             titleRef?.current?.value === INITIAL_TITLE && contentRef?.current?.value === INITIAL_CONTENT ? true : false
           }
         >
           Salvar
+        </Button>
+        <Button
+          variant="contained"
+          color="error"
+          startIcon={<DeleteIcon />}
+          onClick={() => handleDelete()}
+          sx={{ mt: 3, ml: 1, justifyContent: 'flex-end' }}
+        >
+          Deletar
         </Button>
       </Box>
     </Paper>
