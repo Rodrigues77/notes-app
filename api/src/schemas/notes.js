@@ -5,7 +5,7 @@ const notesSchema = new mongoose.Schema(
     title: String,
     content: String,
     createdAt: Number,
-    modifiedAt: Number,
+    modifiedAt: Number
   },
   {
     versionKey: false

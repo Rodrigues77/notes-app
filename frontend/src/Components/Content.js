@@ -11,7 +11,12 @@ export default function Content() {
         item
         xs={12}
         md={6}
-        style={{ position: 'sticky', position: '-webkit-sticky' /* Safari */, top: 0, height: '1px' }}
+        style={{
+          position: 'sticky',
+          position: '-webkit-sticky' /* Safari */,
+          top: 0,
+          height: '1px'
+        }}
       >
         <NoteForm />
       </Grid>
