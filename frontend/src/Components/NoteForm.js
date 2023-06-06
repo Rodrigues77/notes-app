@@ -61,7 +61,7 @@ export default function NoteForm() {
   }, []);
 
   return (
-    <Paper variant="outlined" sx={{ my: { xs: 3, md: 6 }, p: { xs: 2, md: 3 } }}>
+    <Paper variant="outlined" sx={{ my: { xs: 3 }, mx: { xs: 3 }, p: { xs: 2, md: 3 } }}>
       <Typography variant="h6" color="primary" gutterBottom>
         Adicionar Nota
       </Typography>

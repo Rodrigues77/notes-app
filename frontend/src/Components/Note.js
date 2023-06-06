@@ -73,7 +73,7 @@ export default function Note({ data }) {
   };
 
   return (
-    <Paper variant="outlined" sx={{ my: { xs: 3, md: 6 }, p: { xs: 2, md: 3 } }}>
+    <Paper variant="outlined" sx={{ my: { xs: 3 }, mx: { xs: 3 }, p: { xs: 2, md: 3 } }}>
       <Grid container spacing={3}>
         <Grid item xs={12}>
           <TextField
