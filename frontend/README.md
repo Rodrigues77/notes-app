@@ -1,6 +1,6 @@
 # Notes App
 
-Este é o frontend do notes-app, um aplicativo de notas.
+Este é o frontend do ImpactaNotes, um aplicativo de notas.
 
 ## Pré-requisitos
 

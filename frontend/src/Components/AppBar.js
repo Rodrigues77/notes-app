@@ -16,7 +16,7 @@ export default function AppMenu() {
     >
       <Toolbar>
         <Typography variant="h6" color="text.white" noWrap>
-          App de Notas
+        ImpactaNotes
         </Typography>
       </Toolbar>
     </AppBar>

@@ -8,8 +8,8 @@ function Copyright() {
   return (
     <Typography variant="body2" color="text.black">
       {'Copyright © '}
-      <Link color="text.white" sx={{textDecorationColor: `${theme.palette.secondary.main}`}} href="">
-        App de Notas
+      <Link color="text.white" sx={{ textDecorationColor: `${theme.palette.secondary.main}` }} href="">
+        ImpactaNotes
       </Link>{' '}
       {new Date().getFullYear()}
       {'.'}

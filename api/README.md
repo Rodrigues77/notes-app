@@ -1,6 +1,6 @@
 # Notes App
 
-Esta é API do notes-app, um aplicativo de gestão de notas.
+Esta é API do ImpactaNotes, um aplicativo de bloco de notas.
 
 ## Pré-requisitos
 

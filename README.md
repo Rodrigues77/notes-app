@@ -1,6 +1,6 @@
 # Notes App
 
-Este é o aplicativo notes-app, um aplicativo de notas.
+Este é o aplicativo ImpactaNotes, um aplicativo de bloco de notas.
 
 ## Pré-requisitos
 
